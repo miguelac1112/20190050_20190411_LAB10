@@ -3,11 +3,13 @@
 <%@ page import="com.example.lab10.Beans.Viaje" %>
 <%@ page import="com.example.lab10.Daos.ViajesDao" %>
 <%@ page import="java.util.ArrayList" %>
+<%@ page import="java.lang.Integer" %>
 
 <%ViajesDao viajesDao = new ViajesDao();%>
 <%ArrayList<Viaje> listaViajes = viajesDao.obtenerViajeporUsuario(usuarioSesion.getCodigoPucp());%>
 <%=listaViajes%>
-<%--<%=request.getContextPath()%>/MenuServlet?a=listar&codigo_pucp=<%=usuarioSesion.getCodigoPucp()%>%>--%>
+<%int costo_total=viajesDao.total(usuarioSesion.getCodigoPucp());%>
+<%=costo_total%>
 
 <!doctype html>
 <html lang="en">
@@ -82,8 +84,22 @@
         <%String amarillo="#FFC017" ;%>
         <%String  negro ="#000000";%>
         <%String plateado ="#C0C0C0";%>
+        <%String valor="";%>
+        <%if (costo_total<100){
+            valor=azul;
+        }
+        if (costo_total>100 && costo_total<999){
+            valor=plateado;
+        }
+        if (costo_total>1000 && costo_total<9999){
+            valor=amarillo;
+        }
+        if (costo_total>10000){
+            valor=negro;
+        }%>
 
-        <nav class="navbar navbar-expand-lg navbar-scroll fixed-top shadow-0 border-bottom border-dark" style="background-color:<%=negro%>">
+
+        <nav class="navbar navbar-expand-lg navbar-scroll fixed-top shadow-0 border-bottom border-dark" style="background-color:<%=valor%>">
             <div class="container">
                 <a class="navbar-brand" href="#!"><i class="fab fa-mdb fa-4x"></i></a>
                 <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"

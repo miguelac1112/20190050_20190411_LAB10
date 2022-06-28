@@ -2,7 +2,6 @@ package com.example.lab10.Daos;
 
 import com.example.lab10.Beans.Viaje;
 
-import java.io.InputStream;
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -276,5 +275,22 @@ public class ViajesDao extends DaoBase{
         }
     }
 
+    public int total(String codigoPucp) {
+        String sql = "select sum(d.costo*v.tikets) from viajes v , destino d where codigoPucp=? and v.id_destino=d.id ;";
+
+        try (Connection conn = this.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, Integer.parseInt(codigoPucp));
+            try (ResultSet rs = pstmt.executeQuery()) {
+                while (rs.next()) {
+                    return rs.getInt(1);
+                }
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
 
 }

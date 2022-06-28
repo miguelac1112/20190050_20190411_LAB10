@@ -50,4 +50,6 @@ public class RegistroDao extends DaoBase{
 
         return listaUsuarios;
     }
+
+
 }
