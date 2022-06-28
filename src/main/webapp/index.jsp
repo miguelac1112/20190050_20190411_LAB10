@@ -93,9 +93,6 @@
                             <a class="nav-link" style="color: white" href="#!">Viaje</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" style="color: white"  href="#!">Actulización</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" style="color: white"  href="#!">Cerrar Sesion</a>
                         </li>
                     </ul>
@@ -110,22 +107,29 @@
             <br>
 
             <div class="container" >
-                <h2 style="color:white"><center>  Lista de viajes </center>  </h2>
-                <table class="table" style="background-color: <%=negro%>">
+                <h2 style="color:black"><center>  Lista de viajes </center>  </h2>
+                <table class="table" style="background-color:beige">
                     <thead>
-                        <tr><th style="color: white">Identificador de viaje</th><th style="color: white">Fecha de reserva</th><th style="color: white">Fecha de viaje</th><th style="color: white">Cuidad de origen</th><th style="color: white">Cuidad de destino</th><th style="color: white">Empresa de seguros</th><th style="color: white">Numero de boletos</th><th style="color: white">Costo total</th></tr>
+                        <tr><th style="color: black">Identificador de viaje</th><th style="color: black">Fecha de reserva</th><th style="color: black">Fecha de viaje</th><th style="color: black">Cuidad de origen</th><th style="color: black">Cuidad de destino</th><th style="color: black">Empresa de seguros</th><th style="color: black">Numero de boletos</th><th style="color: black">Costo total</th></tr>
                     </thead>
                     <tr>
-                        <td style="color: white">1</td>
-                        <td style="color: white">1</td>
-                        <td style="color: white">1</td>
-                        <td style="color: white">1</td>
-                        <td style="color: white">1</td>
-                        <td style="color: white">1</td>
-                        <td style="color: white">1</td>
-                        <td style="color: white">1</td>
+                        <td style="color: black">1</td>
+                        <td style="color: black">1</td>
+                        <td style="color: black">1</td>
+                        <td style="color: black">1</td>
+                        <td style="color: black">1</td>
+                        <td style="color: black">1</td>
+                        <td style="color: black">1</td>
+                        <td style="color: black">1</td>
+
+                        <td> <a  type="submit" role="button" class="btn btn-outline-info" href="">Editar</a></td>
+                        <td> <a  type="submit" role="button" class="btn btn-outline-warning" href="">Borrar</a></td>
                     </tr>
                 </table>
+                <div class="all-classes-container">
+                    <a  type="submit" role="button" class="btn btn-success " href="">Añadir</a>
+                </div>
+
             </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
