@@ -115,13 +115,13 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link" style="color: white" href="#!">Arturo Noriega</a>
+                            <a class="nav-link" style="color: white" ><%=usuarioSesion.getNombre()%> <%=usuarioSesion.getApellido()%></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" style="color: white" href="#!"><%=status%></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" style="color: white"  href="#!">Cerrar Sesion</a>
+                            <a class="nav-link" style="color: white"  href="<%=request.getContextPath()%>/LoginServlet?finish=yes">Cerrar Sesion</a>
                         </li>
                     </ul>
                 </div>
@@ -151,8 +151,8 @@
                         <td style="color: black"><%=listaViajes1.getCant_boletos()%></td>
                         <td style="color: black"><%=listaViajes1.getCosto_total()%></td>
 
-                        <td> <a  type="submit" role="button" class="btn btn-outline-info" href="">Editar</a></td>
-                        <td> <a  type="submit" role="button" class="btn btn-outline-warning" href="">Borrar</a></td>
+                        <td> <a  type="submit" role="button" class="btn btn-outline-info" href="<%=request.getContextPath()%>/MenuServlet?a=Actualizar&idViaje=<%=listaViajes1.getId_viaje()%>&codigoPucp=<%=usuarioSesion.getCodigoPucp()%>">Editar</a></td>
+                        <td> <a  type="submit" role="button" class="btn btn-outline-warning" href="<%=request.getContextPath()%>/MenuServlet?a=Borrar&idViaje=<%=listaViajes1.getId_viaje()%>&codigoPucp=<%=usuarioSesion.getCodigoPucp()%>">Borrar</a></td>
                     </tr>
                     <%}%>
                 </table>
@@ -162,7 +162,7 @@
                         <a  type="submit" role="button" class="btn btn-success " href="">Añadir</a>
                     </div>
                     <div>
-                        <h2 style="color: white ; background-color: green">Costo:<%=costo_total%></h2>
+                        <h2 style="color: white ">Costo:<%=costo_total%></h2>
                     </div>
                 </div>
 

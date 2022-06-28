@@ -14,14 +14,19 @@ public class MenuServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("a") == null ? "listar" : request.getParameter("a");
         ViajesDao viajesDao = new ViajesDao();
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("index.jsp");
-        requestDispatcher.forward(request, response);
+
         switch (action){
+            case "listar" ->{
+                RequestDispatcher requestDispatcher = request.getRequestDispatcher("index.jsp");
+                requestDispatcher.forward(request, response);
+            }
             case "Actualizar" ->{
                 String idViaje = request.getParameter("idViaje");
                 String codigoPucp = request.getParameter("codigoPucp");
+                System.out.println(idViaje+" "+codigoPucp);
                 Viaje viaje = viajesDao.buscarPorIdViajeCodigobuscarPorIdActHorario(idViaje,codigoPucp);
                 if (viaje != null) {
+                    System.out.println(viaje.getCant_boletos());
                     request.setAttribute("viaje", viaje);
                     request.setAttribute("lista_destinos", viajesDao.listaDestinos());
                     RequestDispatcher requestDispatcher1 = request.getRequestDispatcher("editar.jsp");
@@ -46,6 +51,7 @@ public class MenuServlet extends HttpServlet {
                 String codigo_pucp = request.getParameter("codigo_pucp");
                 String idviaje = request.getParameter("idviaje");
                 viajesDao.actualizarViaje(Integer.parseInt(id_destino),Integer.parseInt(tickets),origen,idviaje,codigo_pucp);
+                response.sendRedirect(request.getContextPath() + "/MenuServlet");
             }
         }
     }
