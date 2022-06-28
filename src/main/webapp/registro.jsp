@@ -11,8 +11,9 @@
 
         <style>
             body{
-                background-image: url("Imagenes/fondo.jpg");
+                background-image: url("imagenes/fondo.jpg");
                 background-position: center ;
+
             }
             .ventana{
                 background: #f1ebeb;
@@ -35,7 +36,7 @@
             <div class="col-sm-14">
                 <form class="form-login" method="POST" action="<%=request.getContextPath()%>/RegistroServlet?a=validacion">
                     <div class="mb-3">
-                        <img class="mb-4 mt-4" src="Imagenes/logo.png" alt=" " width="230" height="150">
+                        <img class="mb-4 mt-4" src="imagenes/logo.png" alt=" " width="230" height="150">
                         <p class="text-center" style="color: aliceblue; font-size: 25px" ><b>Listo para unirte</b></p>
                         <div class="mb-3 mt-3 ms-4 me-4">
                             <input type="text" class="form-control" name="nombre" id="nombre"  placeholder="Nombre" required>
@@ -62,11 +63,11 @@
                             </select>
                         </div>
                         <div class="mb-3 mt-3 ms-4 me-4">
-                            <input type="password" class="form-control"  id="contrasenha" name="contrasenha" placeholder="Contraseña" required>
+                            <input type="password" class="form-control"  id="campo" name="contrasenha" placeholder="Contraseña" required>
                             <span id="campoOK" style="color: white"></span>
                         </div>
                         <div class="mb-3 mt-3 ms-4 me-4">
-                            <input type="password" class="form-control" id="contrasenha_confirmada" name="contrasenha_confirmada" placeholder="Confirmar contraseña" required>
+                            <input type="password" class="form-control" id="campo2" name="contrasenha_confirmada" placeholder="Confirmar contraseña" required>
                             <span id="campoOK2" style="color: white"></span>
                         </div>
                         <div class="mb-3 mt-4">
