@@ -24,7 +24,7 @@
         </style>
     </head>
     <body>
-        <div class="modal-dialog text-center w-75 mt-5 rounded " style="background-color: black">
+        <div class=" text-center w-75 mt-5 rounded " style="background-color: black">
             <div class="col-sm-14">
                 <form>
                     <div class="mb-3">
