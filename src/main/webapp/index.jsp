@@ -134,8 +134,35 @@
             <br>
             <br>
 
+
             <div class="container" >
                 <h2 style="color:black"><center>  Lista de viajes </center>  </h2>
+                <br>
+                <br>
+                <br>
+                <div class="d-flex justify-content-start " >
+                    <form>
+                        <select class="form-control mx-4" style="width:250px;" name="origen"  required>
+                            <option disabled>Seleccionar origen</option>
+                            <option>Lima</option>
+                            <option>Huancayo</option>
+                            <option>Trujillo</option>
+                        </select>
+                        <a type="submit" role="button" class="btn btn-outline-info mx-4"style="width: 80px;background-color:beige"; >origen</a>
+                    </form>
+                    <form>
+                        <select class="form-control mx-4" style="width:250px;" name="destino"  required>
+                            <option disabled>Seleccionar destino</option>
+                            <option>Lima</option>
+                            <option>Huancayo</option>
+                            <option>Trujillo</option>
+                        </select>
+                        <a type="submit" role="button" class="btn btn-outline-info mx-4" style="width: 80px;background-color:beige";>destino</a>
+                    </form>
+
+                </div>
+                <br>
+
                 <table class="table" style="background-color:beige">
                     <thead>
                         <tr><th style="color: black">Identificador de viaje</th><th style="color: black">Fecha de reserva</th><th style="color: black">Fecha de viaje</th><th style="color: black">Cuidad de origen</th><th style="color: black">Cuidad de destino</th><th style="color: black">Empresa de seguros</th><th style="color: black">Numero de boletos</th><th style="color: black">Costo total</th></tr>
