@@ -7,6 +7,8 @@
 
 <%ViajesDao viajesDao = new ViajesDao();%>
 <%ArrayList<Viaje> listaViajes = viajesDao.obtenerViajeporUsuario(usuarioSesion.getCodigoPucp());%>
+<%ArrayList<Viaje> listaDestino = viajesDao.listaViajesDestino(usuarioSesion.getCodigoPucp());%>
+<%ArrayList<Viaje> listaOrigen =viajesDao.listaViajesOrigen(usuarioSesion.getCodigoPucp());%>
 <%=listaViajes%>
 <%int costo_total=viajesDao.total(usuarioSesion.getCodigoPucp());%>
 
@@ -144,18 +146,20 @@
                     <form>
                         <select class="form-control mx-4" style="width:250px;" name="origen"  required>
                             <option disabled>Seleccionar origen</option>
-                            <option>Lima</option>
-                            <option>Huancayo</option>
-                            <option>Trujillo</option>
+                            <%for (Viaje viaje : listaOrigen) {%>
+                            <option value="<%=viaje.getCiudad_origen()%>"><%=viaje.getCiudad_origen()%></option>
+                            <%}%>
                         </select>
                         <a type="submit" role="button" class="btn btn-outline-info mx-4"style="width: 80px;background-color:beige"; >origen</a>
                     </form>
+                    <br>
+                    <br>
                     <form>
                         <select class="form-control mx-4" style="width:250px;" name="destino"  required>
                             <option disabled>Seleccionar destino</option>
-                            <option>Lima</option>
-                            <option>Huancayo</option>
-                            <option>Trujillo</option>
+                            <%for (Viaje viaje : listaDestino) {%>
+                            <option value="<%=viaje.getCiudad_destino()%>"><%=viaje.getCiudad_destino()%></option>
+                            <%}%>
                         </select>
                         <a type="submit" role="button" class="btn btn-outline-info mx-4" style="width: 80px;background-color:beige";>destino</a>
                     </form>
