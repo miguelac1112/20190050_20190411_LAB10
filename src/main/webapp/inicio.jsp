@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
+<jsp:useBean id="indicador" scope="session" type="java.lang.String" class="java.lang.String"/>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
     <head>
         <meta charset="UTF-8">
@@ -18,7 +18,7 @@
 
         <style>
             body {
-                background-image: url("imagenes/fondo.jpg");
+                background-image: url("Imagenes/fondo.jpg");
                 background-position: center;
                 background-repeat: no-repeat;
                 background-position: center center;
@@ -42,28 +42,35 @@
     <body>
         <div class="ventana"  style="background-color: black ;">
             <div class="col-sm-14 d-flex justify-content-center" >
-                <form >
+                <form method="POST" action="<%=request.getContextPath()%>/LoginServlet">
                     <div class="mb-3">
-                        <img class="mb-4 mt-4" src="imagenes/logo.png" alt=" " width="230" height="150">
+                        <img class="mb-4 mt-4" src="Imagenes/logo.png" alt=" " width="230" height="150">
                         <p class="text-center" style="color: aliceblue; font-size: 25px" ><b>Bienvenido Viajero</b></p>
 
                         <div class="mb-3 mt-3 ms-4 me-4">
-                            <input type="email" class="form-control" id="floatingInput" placeholder="Usuario">
+                            <input type="tel" class="form-control" name="codigo_pucp" id="codigo_pucp" maxlength="8" minlength="8" pattern="[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]" placeholder="Codigo Pucp" required>
                         </div>
                         <div class="mb-3 mt-3 ms-4 me-4">
-                            <input type="password" class="form-control" id="floatingPassword" placeholder="Contraseña">
+                            <input type="password" class="form-control" name="pass" id="pass" placeholder="Contraseña">
                         </div>
                         <div class="mb-3 mt-4">
-                            <button type="button" class="btn btn-outline-info rounded">Ingresar</button>
+                            <button type="submit" class="btn btn-outline-info rounded">Ingresar</button>
                         </div>
                         <div class="mb-1">
-                            <span><a href="#" style="color: blue">Soy nuevo y quiero registrarme</a></span>
+                            <span><a href="<%=request.getContextPath()%>/RegistroServlet" style="color: blue">Soy nuevo y quiero registrarme</a></span>
                         </div>
                         <div>
                             <br>
                         </div>
                     </div>
                 </form>
+                <%if (session.getAttribute("indicador").equals("error")){%>
+                </br>
+                <div class="text-danger nb-2">
+                    Error en usuario o contraseña!!!
+                </div>
+                <%session.removeAttribute("indicador");%>
+                <%}%>
             </div>
         </div>
         </div>

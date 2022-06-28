@@ -8,7 +8,7 @@ public class LoginDao extends DaoBase {
     public Usuario validar(String codigoPucp,String password){
         Usuario usuario = null;
 
-        String sql = "select* from usuarios where codigoPucp=? and contrasena=sha2(?,256);";
+        String sql = "select* from usuarios where codigoPucp= ? and contrasena=sha2(?,256);";
 
         try (Connection connection = this.getConnection();
              PreparedStatement pstmt = connection.prepareStatement(sql);) {
@@ -23,8 +23,10 @@ public class LoginDao extends DaoBase {
                     usuario.setApellido(rs.getString(3));
                     usuario.setEdad(rs.getInt(4));
                     usuario.setEspecialidad(rs.getString(5));
+                    usuario.setContrasenha(rs.getString(6));
                     usuario.setStatus(rs.getString(7));
                     usuario.setGastos(rs.getInt(8));
+                    usuario.setCorreo(rs.getString(9));
                 }
             }
 
