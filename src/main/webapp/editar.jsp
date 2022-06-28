@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <style>
             body{
-                background-image: url("imagenes/fondo.jpg");
+                background-image: url("Imagenes/fondo.jpg");
                 background-position: center ;
             }
             .ventana{
@@ -37,7 +37,7 @@
             <div class="col-sm-14">
                 <form>
                     <div class="mb-3">
-                        <img class="mb-4 mt-4" src="imagenes/logo.png" alt=" " width="230" height="150">
+                        <img class="mb-4 mt-4" src="Imagenes/logo.png" alt=" " width="230" height="150">
                         <p class="text-center" style="color: aliceblue; font-size: 25px" ><b>Edición</b></p>
 
                         <div class="mb-3 mt-3 ms-4 me-4">

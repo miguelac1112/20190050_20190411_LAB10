@@ -2,6 +2,7 @@ package com.example.lab10.Beans;
 
 public class Usuario {
     private String codigoPucp;
+    private String correo;
     private String nombre;
     private String apellido;
     private int edad;
@@ -9,6 +10,14 @@ public class Usuario {
     private String contrasenha;
     private String status;
     private int gastos;
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
 
     public String getCodigoPucp() {
         return codigoPucp;

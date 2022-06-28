@@ -1,11 +1,5 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: 124349
-  Date: 28/06/2022
-  Time: 05:19
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<jsp:useBean id="invalid1" scope="request" type="java.lang.String" class="java.lang.String" />
 <html>
     <head>
         <meta charset="UTF-8">
@@ -17,7 +11,7 @@
 
         <style>
             body{
-                background-image: url("imagenes/fondo.jpg");
+                background-image: url("Imagenes/fondo.jpg");
                 background-position: center ;
             }
             .ventana{
@@ -39,29 +33,44 @@
 
         <div class=" ventana " style="background-color: black">
             <div class="col-sm-14">
-                <form>
+                <form class="form-login" method="POST" action="<%=request.getContextPath()%>/RegistroServlet?a=validacion">
                     <div class="mb-3">
-                        <img class="mb-4 mt-4" src="imagenes/logo.png" alt=" " width="230" height="150">
+                        <img class="mb-4 mt-4" src="Imagenes/logo.png" alt=" " width="230" height="150">
                         <p class="text-center" style="color: aliceblue; font-size: 25px" ><b>Listo para unirte</b></p>
                         <div class="mb-3 mt-3 ms-4 me-4">
-                            <input type="text" class="form-control"  placeholder="Nombre" required>
+                            <input type="text" class="form-control" name="nombre" id="nombre"  placeholder="Nombre" required>
                         </div>
                         <div class="mb-3 mt-3 ms-4 me-4">
-                            <input type="text" class="form-control"  placeholder="Apellido" required>
+                            <input type="text" class="form-control" name="apellido" id="apellido"  placeholder="Apellido" required>
                         </div>
                         <div class="mb-3 mt-3 ms-4 me-4">
-                            <input type="number" min="8" max="8" class="form-control"  placeholder="Codigo Pucp" required>
+                            <input class="form-control" placeholder="Edad" type="number" min="18" max="29" step="1" name="edad" id="edad" required>
                         </div>
                         <div class="mb-3 mt-3 ms-4 me-4">
-                            <input type="password" class="form-control"  id="campo" placeholder="Contraseña" required>
+                            <input type="tel" class="form-control" name="codigo" id="codigo" maxlength="8" minlength="8" pattern="[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]" placeholder="Codigo Pucp" required>
+                        </div>
+                        <div class="mb-3 mt-3 ms-4 me-4">
+                            <input type="email" class="form-control" id="correo_pucp" name="correo_pucp" aria-describedby="emailHelp" placeholder="Correo Pucp" required>
+                        </div>
+                        <div class="mb-3 mt-3 ms-4 me-4">
+                            <label for="especialidad"></label>
+                            <select class="form-select" name="especialidad" id="especialidad" required>
+                                <option disabled>Seleccionar especialidad</option>
+                                <option>Telecomunicaciones</option>
+                                <option>Electrónica</option>
+                                <option>Informática</option>
+                            </select>
+                        </div>
+                        <div class="mb-3 mt-3 ms-4 me-4">
+                            <input type="password" class="form-control"  id="contrasenha" name="contrasenha" placeholder="Contraseña" required>
                             <span id="campoOK" style="color: white"></span>
                         </div>
                         <div class="mb-3 mt-3 ms-4 me-4">
-                            <input type="password" class="form-control" id="campo2" placeholder="Confirma contraseña" required>
+                            <input type="password" class="form-control" id="contrasenha_confirmada" name="contrasenha_confirmada" placeholder="Confirmar contraseña" required>
                             <span id="campoOK2" style="color: white"></span>
                         </div>
                         <div class="mb-3 mt-4">
-                            <button type="button" class="btn btn-outline-info rounded">Registrarce</button>
+                            <button type="submit" class="btn btn-outline-info rounded">Registrarse</button>
                         </div>
                         <div>
                             <br>
