@@ -1,11 +1,7 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: 124349
-  Date: 28/06/2022
-  Time: 06:44
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="com.example.lab10.Beans.Viaje" %>
+<jsp:useBean type="java.util.ArrayList<com.example.lab10.Beans.Viaje>" scope="request" id="lista_destinos"/>
+<jsp:useBean id="viaje" scope="request" type="com.example.lab10.Beans.Viaje" />
 <html>
     <head>
         <meta charset="UTF-8">
@@ -35,27 +31,42 @@
     <body>
         <div class="ventana" style="background-color: black">
             <div class="col-sm-14">
-                <form>
+                <form method="POST" action="<%=request.getContextPath()%>/MenuServlet?a=actualizar">
                     <div class="mb-3">
                         <img class="mb-4 mt-4" src="Imagenes/logo.png" alt=" " width="230" height="150">
                         <p class="text-center" style="color: aliceblue; font-size: 25px" ><b>Edición</b></p>
 
-                        <div class="mb-3 mt-3 ms-4 me-4">
-                            <input type="number" min="0" max="15" class="form-control"  placeholder="tiket" required>
+                        <div>
+                            <label for="ticket"></label>
+                            <input class="form-control" value="<%=viaje.getCant_boletos()%>" type="number" min="1" max="15" step="1" name="ticket" id="ticket" required>
+                            <input type="hidden" name="codigo_pucp" id="codigo_pucp" value="<%=viaje.getCodigo_comprador()%>" />
+                            <input type="hidden" name="idviaje" id="idviaje" value="<%=viaje.getId_viaje()%>" />
                         </div>
-                        <div class="mb-3 mt-3 ms-4 me-4">
-                            <input type="text" class="form-control"   placeholder="origen" required>
 
+
+                        <div class="mb-3 mt-3 ms-4 me-4">
+                            <label for="origen"></label>
+                            <select class="form-control" name="origen" id="origen" required>
+                                <option disabled>Seleccionar origen</option>
+                                <option>Lima</option>
+                                <option>Huancayo</option>
+                                <option>Trujillo</option>
+                            </select>
                         </div>
                         <div class="mb-3 mt-3 ms-4 me-4">
-                            <input type="text" class="form-control"   placeholder="destino" required>
+                            <select class="form-control" name="destino" id="destino" required>
+                                <option disabled>Seleccionar destino</option>
+                                <%for(Viaje listaDestino: lista_destinos){%>
+                                <option value="<%=listaDestino.getId_destino()%>"><%=listaDestino.getCiudad_destino()%></option>
+                                <%}%>
+                            </select>
                         </div>
                         <div class="d-flex justify-content-around center">
                             <div class="mb-3 mt-4">
-                                <button type="summit" class="btn btn-outline-info rounded">Editar</button>
+                                <button type="submit" class="btn btn-outline-info rounded">Editar</button>
                             </div>
                             <div class="mb-3 mt-4">
-                                <button type="button" class="btn btn-outline-info rounded">Regresar</button>
+                                <a href="<%=request.getContextPath()%>/MenuServlet" type="button" class="btn btn-outline-info rounded">Regresar</a>
                             </div>
                         </div>
                         <div>

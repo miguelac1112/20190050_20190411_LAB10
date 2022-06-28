@@ -7,6 +7,32 @@ import java.util.ArrayList;
 
 public class ViajesDao extends DaoBase{
 
+    public Viaje buscarPorIdViajeCodigobuscarPorIdActHorario(String id, String codigo_pucp) {
+        Viaje viaje = null;
+
+        String sql = "select idviajes, codigoPucp, tikets from viajes where idviajes=? and codigoPucp=?";
+        try (Connection connection = this.getConnection();
+             PreparedStatement pstmt = connection.prepareStatement(sql);) {
+
+            pstmt.setString(1, id);
+            pstmt.setString(2, codigo_pucp);
+
+            try (ResultSet rs = pstmt.executeQuery();) {
+
+                if (rs.next()) {
+                    viaje = new Viaje();
+                    viaje.setId_viaje(rs.getString(1));
+                    viaje.setCodigo_comprador(rs.getString(2));
+                    viaje.setCant_boletos(rs.getInt(3));
+                }
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return viaje;
+    }
+
     public ArrayList<Viaje> obtenerViajeporUsuario(String codigoPucp) {
         ArrayList<Viaje> listaViaje = new ArrayList<>();
 

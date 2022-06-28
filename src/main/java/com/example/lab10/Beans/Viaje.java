@@ -11,7 +11,15 @@ public class Viaje {
     private String empresa_seguro;
     private int cant_boletos;
     private int costo_total;
+    private String codigo_comprador;
 
+    public String getCodigo_comprador() {
+        return codigo_comprador;
+    }
+
+    public void setCodigo_comprador(String codigo_comprador) {
+        this.codigo_comprador = codigo_comprador;
+    }
 
     public int getCosto_unitario() {
         return costo_unitario;
