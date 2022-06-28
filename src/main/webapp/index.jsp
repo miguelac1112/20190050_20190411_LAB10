@@ -93,9 +93,6 @@
                             <a class="nav-link" style="color: white" href="#!">Viaje</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" style="color: white" href="#!">Registro</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" style="color: white"  href="#!">Actulización</a>
                         </li>
                         <li class="nav-item">
