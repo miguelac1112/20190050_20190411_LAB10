@@ -55,7 +55,7 @@
                         </div>
                         <div class="mb-3 mt-3 ms-4 me-4">
                             <label for="especialidad"></label>
-                            <select class="form-select" name="especialidad" id="especialidad" required>
+                            <select class="form-control" name="especialidad" id="especialidad" required>
                                 <option disabled>Seleccionar especialidad</option>
                                 <option>Telecomunicaciones</option>
                                 <option>Electrónica</option>
