@@ -20,6 +20,7 @@ public class LoginServlet extends HttpServlet {
         }else{
             if(logout.equals("yes")){
                 HttpSession session = request.getSession();
+
                 session.invalidate();
                 response.sendRedirect(request.getContextPath() + "/LoginServlet");
             }else{

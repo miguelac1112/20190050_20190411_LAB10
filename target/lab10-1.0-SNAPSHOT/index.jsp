@@ -9,7 +9,7 @@
 <%ArrayList<Viaje> listaViajes = viajesDao.obtenerViajeporUsuario(usuarioSesion.getCodigoPucp());%>
 <%=listaViajes%>
 <%int costo_total=viajesDao.total(usuarioSesion.getCodigoPucp());%>
-<%=costo_total%>
+
 
 <!doctype html>
 <html lang="en">
@@ -85,17 +85,22 @@
         <%String  negro ="#000000";%>
         <%String plateado ="#C0C0C0";%>
         <%String valor="";%>
+        <%String status="";%>
         <%if (costo_total<100){
             valor=azul;
+            status="Normal";
         }
         if (costo_total>100 && costo_total<999){
             valor=plateado;
+            status="Silver";
         }
         if (costo_total>1000 && costo_total<9999){
             valor=amarillo;
+            status="Gold";
         }
         if (costo_total>10000){
             valor=negro;
+            status="Platinum";
         }%>
 
 
@@ -113,7 +118,7 @@
                             <a class="nav-link" style="color: white" href="#!">Arturo Noriega</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" style="color: white" href="#!">Golden</a>
+                            <a class="nav-link" style="color: white" href="#!"><%=status%></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" style="color: white"  href="#!">Cerrar Sesion</a>
@@ -151,8 +156,14 @@
                     </tr>
                     <%}%>
                 </table>
-                <div class="all-classes-container">
-                    <a  type="submit" role="button" class="btn btn-success " href="">Añadir</a>
+
+                <div class="d-flex justify-content-evenly">
+                    <div>
+                        <a  type="submit" role="button" class="btn btn-success " href="">Añadir</a>
+                    </div>
+                    <div>
+                        <h2 style="color: white ; background-color: green">Costo:<%=costo_total%></h2>
+                    </div>
                 </div>
 
             </div>
