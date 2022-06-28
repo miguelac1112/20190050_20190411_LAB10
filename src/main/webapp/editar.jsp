@@ -17,27 +17,42 @@
                 background-image: url("imagenes/fondo.jpg");
                 background-position: center ;
             }
+            .ventana{
+                background: #f1ebeb;
+                width: 50%;
+                font-family: Georgia;
+                font-size: 18px;
+                text-align: center;
+                padding: 33px;
+                min-height:250px;
+                border-radius: 22px;
+                position:absolute;
+                left: 30%;
+                top:5%;
+            }
         </style>
     </head>
     <body>
-        <div class="text-center w-75 mt-5 rounded " style="background-color: black">
+        <div class="ventana" style="background-color: black">
             <div class="col-sm-14">
                 <form>
                     <div class="mb-3">
                         <img class="mb-4 mt-4" src="imagenes/logo.png" alt=" " width="230" height="150">
                         <p class="text-center" style="color: aliceblue; font-size: 25px" ><b>Edición</b></p>
+
                         <div class="mb-3 mt-3 ms-4 me-4">
-                            <input type="number" min="8" max="8"   placeholder="tiket" required>
+                            <input type="number" min="0" max="15" class="form-control"  placeholder="tiket" required>
                         </div>
                         <div class="mb-3 mt-3 ms-4 me-4">
-                            <input type="text"    required>
-                            <span id="campoOK"></span>
+                            <input type="text" class="form-control"   placeholder="origen" required>
+
                         </div>
                         <div class="mb-3 mt-3 ms-4 me-4">
-                            <input type="password" class="form-control" id="campo2"  required>
-                            <span id="campoOK2"></span>
+                            <input type="text" class="form-control"   placeholder="destino" required>
+
                         </div>
-                        <div class="d-flex justify-content-evenly">
+
+                        <div class="d-flex justify-content-around center">
                             <div class="mb-3 mt-4">
                                 <button type="summit" class="btn btn-outline-info rounded">Editar</button>
                             </div>

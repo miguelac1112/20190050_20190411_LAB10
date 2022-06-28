@@ -20,11 +20,24 @@
                 background-image: url("imagenes/fondo.jpg");
                 background-position: center ;
             }
+            .ventana{
+                background: #f1ebeb;
+                width: 50%;
+                font-family: Georgia;
+                font-size: 18px;
+                text-align: center;
+                padding: 33px;
+                min-height:250px;
+                border-radius: 22px;
+                position:absolute;
+                left: 30%;
+                top:5%;
+            }
         </style>
     </head>
     <body>
 
-        <div class=" text-center w-75 mt-5 rounded " style="background-color: black">
+        <div class=" ventana " style="background-color: black">
             <div class="col-sm-14">
                 <form>
                     <div class="mb-3">
@@ -41,11 +54,11 @@
                         </div>
                         <div class="mb-3 mt-3 ms-4 me-4">
                             <input type="password" class="form-control"  id="campo" placeholder="Contraseña" required>
-                            <span id="campoOK"></span>
+                            <span id="campoOK" style="color: white"></span>
                         </div>
                         <div class="mb-3 mt-3 ms-4 me-4">
                             <input type="password" class="form-control" id="campo2" placeholder="Confirma contraseña" required>
-                            <span id="campoOK2"></span>
+                            <span id="campoOK2" style="color: white"></span>
                         </div>
                         <div class="mb-3 mt-4">
                             <button type="button" class="btn btn-outline-info rounded">Registrarce</button>
@@ -59,5 +72,39 @@
         </div>
         </div>
     </body>
+    <script>
+        document
+            .getElementById('campo')
+            .addEventListener('input', function(evt) {
+                const campo = evt.target,
+                    valido = document.getElementById('campoOK'),
+
+                    regex = /^(?=.*\d)(?=.*[a-záéíóúüñ]).*[A-ZÁÉÍÓÚÜÑ]/;
+
+                //Se muestra un texto válido/inválido a modo de ejemplo
+                if (regex.test(campo.value)) {
+                    valido.innerText = "válido";
+                } else {
+                    valido.innerText = "incorrecto";
+                }
+            });
+    </script>
+    <script>
+        document
+            .getElementById('campo2')
+            .addEventListener('input', function(evt) {
+                const campo = evt.target,
+                    valido = document.getElementById('campoOK2'),
+
+                    regex = /^(?=.*\d)(?=.*[a-záéíóúüñ]).*[A-ZÁÉÍÓÚÜÑ]/;
+
+                //Se muestra un texto válido/inválido a modo de ejemplo
+                if (regex.test(campo.value)) {
+                    valido.innerText = "válido";
+                } else {
+                    valido.innerText = "incorrecto";
+                }
+            });
+    </script>
 
 </html>

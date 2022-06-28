@@ -15,6 +15,7 @@
                 background-repeat: no-repeat;
                 background-position: center center;
                 background-attachment: fixed;
+                font-family: Georgia;
             }
             #main-container{
                 margin-top: 5000px;

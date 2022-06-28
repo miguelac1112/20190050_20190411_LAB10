@@ -17,16 +17,29 @@
               crossorigin="anonymous">
 
         <style>
-            body{
+            body {
                 background-image: url("imagenes/fondo.jpg");
-                background-position: center ;
+                background-position: center;
+            }
+            .ventana{
+                background: #f1ebeb;
+                width: 50%;
+                font-family: Georgia;
+                font-size: 18px;
+                text-align: center;
+                padding: 33px;
+                min-height:250px;
+                border-radius: 22px;
+                position:absolute;
+                left: 30%;
+                top:5%;
             }
         </style>
     </head>
     <body>
-        <div class=" text-center w-75 mt-5 rounded " style="background-color: black">
-            <div class="col-sm-14">
-                <form>
+        <div class="ventana"  style="background-color: black ;">
+            <div class="col-sm-14 d-flex justify-content-center" >
+                <form >
                     <div class="mb-3">
                         <img class="mb-4 mt-4" src="imagenes/logo.png" alt=" " width="230" height="150">
                         <p class="text-center" style="color: aliceblue; font-size: 25px" ><b>Bienvenido Viajero</b></p>
@@ -46,9 +59,11 @@
                         <div>
                             <br>
                         </div>
+                    </div>
                 </form>
             </div>
         </div>
         </div>
+
     </body>
 </html>
