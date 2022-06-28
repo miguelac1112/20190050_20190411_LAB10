@@ -41,7 +41,7 @@
                             <button type="button" class="btn btn-outline-info rounded">Ingresar</button>
                         </div>
                         <div class="mb-1">
-                            <span><a href="#" style="color: blue">¿Haz olvidado tu contraseña?</a></span>
+                            <span><a href="#" style="color: blue">Soy nuevo y quiero registrarme</a></span>
                         </div>
                         <div>
                             <br>
