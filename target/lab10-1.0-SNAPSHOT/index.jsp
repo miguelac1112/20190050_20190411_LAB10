@@ -73,7 +73,7 @@
         <%String  negro ="#000000";%>
         <%String plateado ="#C0C0C0";%>
 
-        <nav class="navbar navbar-expand-lg navbar-scroll fixed-top shadow-0 border-bottom border-dark" style="background-color:<%=plateado%>">
+        <nav class="navbar navbar-expand-lg navbar-scroll fixed-top shadow-0 border-bottom border-dark" style="background-color:<%=negro%>">
             <div class="container">
                 <a class="navbar-brand" href="#!"><i class="fab fa-mdb fa-4x"></i></a>
                 <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
@@ -113,24 +113,20 @@
             <br>
 
             <div class="container" >
-                <h2 style="color:white"> Lista de viajes </h2>
-                <table class="table" style="background-color: <%=plateado%>">
+                <h2 style="color:white"><center>  Lista de viajes </center>  </h2>
+                <table class="table" style="background-color: <%=negro%>">
                     <thead>
-                        <tr>
-                            <th>Identificador de viaje</th><th>Fecha de reserva</th><th>Fecha de viaje</th><th>Cuidad de origen</th><th>Cuidad de destino</th><th>Empresa de seguros</th><th>Numero de boletos</th><th>Costo total</th>
-                        </tr>
+                        <tr><th style="color: white">Identificador de viaje</th><th style="color: white">Fecha de reserva</th><th style="color: white">Fecha de viaje</th><th style="color: white">Cuidad de origen</th><th style="color: white">Cuidad de destino</th><th style="color: white">Empresa de seguros</th><th style="color: white">Numero de boletos</th><th style="color: white">Costo total</th></tr>
                     </thead>
-
-
                     <tr>
-                        <td >1</td>
-                        <td>x</td>
-                        <td>x</td>
-                        <td>x</td>
-                        <td>x</td>
-                        <td>x</td>
-                        <td>x</td>
-                        <td> x  </td>
+                        <td style="color: white">1</td>
+                        <td style="color: white">1</td>
+                        <td style="color: white">1</td>
+                        <td style="color: white">1</td>
+                        <td style="color: white">1</td>
+                        <td style="color: white">1</td>
+                        <td style="color: white">1</td>
+                        <td style="color: white">1</td>
                     </tr>
                 </table>
             </div>
