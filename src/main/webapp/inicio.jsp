@@ -62,15 +62,16 @@
                         <div>
                             <br>
                         </div>
+                        <%if (session.getAttribute("indicador").equals("error")){%>
+                        </br>
+                        <div class="text-danger nb-2">
+                            Error en usuario o contraseña!!!
+                        </div>
+                        <%session.removeAttribute("indicador");%>
+                        <%}%>
                     </div>
                 </form>
-                <%if (session.getAttribute("indicador").equals("error")){%>
-                </br>
-                <div class="text-danger nb-2">
-                    Error en usuario o contraseña!!!
-                </div>
-                <%session.removeAttribute("indicador");%>
-                <%}%>
+
             </div>
         </div>
         </div>
