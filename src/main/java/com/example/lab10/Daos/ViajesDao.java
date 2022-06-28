@@ -1,11 +1,37 @@
 package com.example.lab10.Daos;
 
+import com.example.lab10.Beans.Usuario;
 import com.example.lab10.Beans.Viaje;
 
 import java.sql.*;
 import java.util.ArrayList;
 
 public class ViajesDao extends DaoBase{
+
+    public Usuario buscarPorId(String codigo_pucp) {
+        Usuario usuario = null;
+
+        String sql = "select * from usuarios where codigoPucp = ?";
+
+        try (Connection connection = this.getConnection();
+             PreparedStatement pstmt = connection.prepareStatement(sql);) {
+
+            pstmt.setString(1, codigo_pucp);
+
+            try (ResultSet rs = pstmt.executeQuery();) {
+
+                if (rs.next()) {
+                    usuario = new Usuario();
+                    usuario.setCodigoPucp(rs.getString(1));
+                }
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return usuario;
+    }
+
 
     public Viaje buscarPorIdViajeCodigobuscarPorIdActHorario(String id, String codigo_pucp) {
         Viaje viaje = null;
@@ -31,6 +57,29 @@ public class ViajesDao extends DaoBase{
         }
 
         return viaje;
+    }
+
+
+    public ArrayList<Viaje> obtenerFechasViajes(String codigoPucp) {
+        ArrayList<Viaje> listaViaje = new ArrayList<>();
+
+        String sql = "select fechaviaje from viajes where codigoPucp = ?;";
+        try (Connection connection = this.getConnection();
+             PreparedStatement pstmt = connection.prepareStatement(sql);) {
+
+            pstmt.setString(1, codigoPucp);
+
+            try (ResultSet rs = pstmt.executeQuery();) {
+                while (rs.next()) {
+                    Viaje viaje= new Viaje();
+                    viaje.setFecha_viaje(rs.getString(1));
+                    listaViaje.add(viaje);
+                }
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return listaViaje;
     }
 
     public ArrayList<Viaje> obtenerViajeporUsuario(String codigoPucp) {
@@ -178,12 +227,12 @@ public class ViajesDao extends DaoBase{
         return listaViaje;
     }
 
-    public void crearViaje(String fecha_reserva, String fecha_viaje, String ciudad_origen, int id_ciudad_destino,
-                           String empresa_seguro, int tickets, String codigo_pucp) {
+    public void crearViaje(String fecha_viaje, String ciudad_origen, String id_ciudad_destino,
+                           String empresa_seguro, String tickets, String codigo_pucp) {
 
 
         String sql = "insert into viajes(idviajes,fechareserva,fechaviaje,origen,id_destino,empresa,tikets,codigoPucp)\n" +
-                "values(?,?,?,?,?,?,?,?)";
+                "values(?,date(now()),?,?,?,?,?,?)";
 
         try (Connection connection = this.getConnection();
              PreparedStatement pstmt = connection.prepareStatement(sql);) {
@@ -195,13 +244,12 @@ public class ViajesDao extends DaoBase{
             }
 
             pstmt.setString(1, id);
-            pstmt.setString(2, fecha_reserva);
-            pstmt.setString(3, fecha_viaje);
-            pstmt.setString(4, ciudad_origen);
-            pstmt.setInt(5, id_ciudad_destino);
-            pstmt.setString(6,empresa_seguro);
-            pstmt.setInt(7,tickets);
-            pstmt.setString(8,codigo_pucp);
+            pstmt.setString(2, fecha_viaje);
+            pstmt.setString(3, ciudad_origen);
+            pstmt.setInt(4, Integer.parseInt(id_ciudad_destino));
+            pstmt.setString(5,empresa_seguro);
+            pstmt.setInt(6, Integer.parseInt(tickets));
+            pstmt.setString(7,codigo_pucp);
             pstmt.executeUpdate();
 
         } catch (SQLException e) {

@@ -191,7 +191,7 @@
 
                 <div class="d-flex justify-content-evenly">
                     <div>
-                        <a  type="submit" role="button" class="btn btn-success " href="">Añadir</a>
+                        <a  role="button" class="btn btn-success " href="<%=request.getContextPath()%>/MenuServlet?a=crearViaje&codigoPucp=<%=usuarioSesion.getCodigoPucp()%>">Añadir</a>
                     </div>
                     <div>
                         <h2 style="color: white ">Costo:<%=costo_total%></h2>

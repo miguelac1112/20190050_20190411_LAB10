@@ -1,11 +1,10 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: 124349
-  Date: 28/06/2022
-  Time: 13:04
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="com.example.lab10.Servlets.MenuServlet" %>
+<%@ page import="com.example.lab10.Beans.Viaje" %>
+<jsp:useBean type="java.util.ArrayList<com.example.lab10.Beans.Viaje>" scope="request" id="listaDestinos"/>
+<%@ page import="java.util.Objects" %>
+<jsp:useBean id="usuario" scope="request" type="com.example.lab10.Beans.Usuario" />
+<jsp:useBean id="invalid1" scope="request" type="java.lang.String" class="java.lang.String" />
 <html>
     <head>
         <meta charset="UTF-8">
@@ -34,30 +33,49 @@
         </style>
     </head>
     <body>
-        <div class="ventana" style="background-color: black">
+        <form class="ventana"  style="background-color: black"  method="POST" action="<%=request.getContextPath()%>/MenuServlet?a=crear_viaje" >
             <img class="mb-4 mt-4" src="Imagenes/logo.png" alt=" " width="230" height="150">
             <p class="text-center" style="color: aliceblue; font-size: 25px" ><b>Añadir</b></p>
             <div class="col-sm-14 d-flex justify-content-around">
                 <div>
                     <div class="mb-3">
                         <div class="mb-3 mt-3 ms-4 me-4">
-                            <input type="text" class="form-control"   placeholder="Destino" required>
-                        </div>
-                        <div class="mb-3 mt-3 ms-4 me-4">
-                            <input type="text" class="form-control"   placeholder="Origen" required>
-                        </div>
-                        <div class="mb-3 mt-3 ms-4 me-4">
-                            <input type="number" class="form-control"   placeholder="Tiket" required>
-                        </div>
-                        <div class="mb-3 mt-3 ms-4 me-4">
-                            <label for="destinos"></label>
-                            <select class="form-control" name="Destinos" id="destinos" required>
-                                <option disabled>Seleccionar especialidad</option>
-                                <option>Lima</option>
-                                <option>Piura</option>
-                                <option>Rusia</option>
+                            <label for="id_ciudad_destino"></label>
+                            <select class="form-control" name="id_ciudad_destino" id="id_ciudad_destino" required>
+                                <option disabled>Seleccionar ciudad destino</option>
+                                <%for(Viaje listadestinos: listaDestinos){%>
+                                <option value="<%=listadestinos.getId_destino()%>" ><%=listadestinos.getCiudad_destino()%></option>
+                                <%}%>
                             </select>
                         </div>
+                        <div class="mb-3 mt-3 ms-4 me-4">
+                            <label for="ciudad_origen"></label>
+                            <select class="form-control" name="ciudad_origen" id="ciudad_origen" required>
+                                <option disabled>Seleccionar ciudad origen</option>
+                                <option>Lima</option>
+                                <option>Trujillo</option>
+                                <option>Huancayo</option>
+                            </select>
+                        </div>
+                        <div class="mb-3 mt-3 ms-4 me-4">
+                            <input type="date"  name="fecha_viaje" id="fecha_viaje" class="form-control" aria-describedby="emailHelp" min="2022-06-28" max="2023-06-28" required>
+                            <input type="hidden" name="codigo_pucp" id="codigo_pucp" value="<%=usuario.getCodigoPucp()%>" />
+                        </div>
+                        <div class="mb-3 mt-3 ms-4 me-4">
+                            <input type="number"  name="tickets" id="tickets" class="form-control" min="1" max="15" step="1"  placeholder="Ticket" required>
+                        </div>
+                        <div class="mb-3 mt-3 ms-4 me-4">
+                            <label for="empresa_seguro"></label>
+                            <select class="form-control" name="empresa_seguro" id="empresa_seguro" required>
+                                <option disabled>Seleccionar seguro</option>
+                                <option>Rimac</option>
+                                <option>Pacifico</option>
+                                <option>La positiva</option>
+                                <option>Seguro internacional</option>
+                                <option>Otro</option>
+                            </select>
+                        </div>
+                        <%%>
                     </div>
                 </div>
                 <div>
@@ -68,21 +86,25 @@
                                 <thead>
                                     <tr><th style="color: black">Destino</th><th style="color: black">Costo</th>
                                 </thead>
+                                <%for(Viaje listadestinos: listaDestinos){%>
                                 <tr>
-                                    <td style="color: black">Lima</td>
-                                    <td style="color: black">30</td>
+                                    <td style="color: black"><%=listadestinos.getCiudad_destino()%></td>
+                                    <td style="color: black"><%=listadestinos.getCosto_unitario()%></td>
                                 </tr>
+                                <%}%>
                             </table>
-
                         </div>
                     </div>
+                    <%if(invalid1.equals("incorrecto")){%>
+                    <h2>Elige otra fecha de viaje!</h2>
+                    <%}%>
                 </div>
 
             </div>
             <div class="mb-3 mt-4">
                 <button type="submit" class="btn btn-outline-info rounded">Añadir</button>
             </div>
-        </div>
+        </form>
 
 
     </body>
