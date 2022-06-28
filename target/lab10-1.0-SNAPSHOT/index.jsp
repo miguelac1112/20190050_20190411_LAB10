@@ -90,9 +90,6 @@
                             <a class="nav-link" style="color: white" href="#!">Golden</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" style="color: white" href="#!">Viaje</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" style="color: white"  href="#!">Cerrar Sesion</a>
                         </li>
                     </ul>
