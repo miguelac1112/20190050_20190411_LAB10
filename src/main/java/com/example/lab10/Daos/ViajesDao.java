@@ -171,7 +171,7 @@ public class ViajesDao extends DaoBase{
 
             pstmt.setString(1, id);
             pstmt.setString(2, fecha_reserva);
-            pstmt.setString(2, fecha_reserva);
+            pstmt.setString(3, fecha_viaje);
             pstmt.setString(4, ciudad_origen);
             pstmt.setInt(5, id_ciudad_destino);
             pstmt.setString(6,empresa_seguro);

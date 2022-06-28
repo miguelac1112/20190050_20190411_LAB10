@@ -1,4 +1,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<jsp:useBean id="usuarioSesion" scope="session" type="com.example.lab10.Beans.Usuario" class="com.example.lab10.Beans.Usuario"/>
+<%@ page import="com.example.lab10.Beans.Viaje" %>
+<%@ page import="com.example.lab10.Daos.ViajesDao" %>
+<%@ page import="java.util.ArrayList" %>
+
+<%ViajesDao viajesDao = new ViajesDao();%>
+<%ArrayList<Viaje> listaViajes = viajesDao.obtenerViajeporUsuario(usuarioSesion.getCodigoPucp());%>
+<%=listaViajes%>
+<%--<%=request.getContextPath()%>/MenuServlet?a=listar&codigo_pucp=<%=usuarioSesion.getCodigoPucp()%>%>--%>
 
 <!doctype html>
 <html lang="en">
@@ -110,19 +119,21 @@
                     <thead>
                         <tr><th style="color: black">Identificador de viaje</th><th style="color: black">Fecha de reserva</th><th style="color: black">Fecha de viaje</th><th style="color: black">Cuidad de origen</th><th style="color: black">Cuidad de destino</th><th style="color: black">Empresa de seguros</th><th style="color: black">Numero de boletos</th><th style="color: black">Costo total</th></tr>
                     </thead>
+                    <%for(Viaje listaViajes1: listaViajes){%>
                     <tr>
-                        <td style="color: black">1</td>
-                        <td style="color: black">1</td>
-                        <td style="color: black">1</td>
-                        <td style="color: black">1</td>
-                        <td style="color: black">1</td>
-                        <td style="color: black">1</td>
-                        <td style="color: black">1</td>
-                        <td style="color: black">1</td>
+                        <td style="color: black"><%=listaViajes1.getId_viaje()%></td>
+                        <td style="color: black"><%=listaViajes1.getFecha_reserva()%></td>
+                        <td style="color: black"><%=listaViajes1.getFecha_viaje()%></td>
+                        <td style="color: black"><%=listaViajes1.getCiudad_origen()%></td>
+                        <td style="color: black"><%=listaViajes1.getCiudad_destino()%></td>
+                        <td style="color: black"><%=listaViajes1.getEmpresa_seguro()%></td>
+                        <td style="color: black"><%=listaViajes1.getCant_boletos()%></td>
+                        <td style="color: black"><%=listaViajes1.getCosto_total()%></td>
 
                         <td> <a  type="submit" role="button" class="btn btn-outline-info" href="">Editar</a></td>
                         <td> <a  type="submit" role="button" class="btn btn-outline-warning" href="">Borrar</a></td>
                     </tr>
+                    <%}%>
                 </table>
                 <div class="all-classes-container">
                     <a  type="submit" role="button" class="btn btn-success " href="">Añadir</a>
