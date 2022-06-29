@@ -9,7 +9,6 @@
 <%ArrayList<Viaje> listaViajes = viajesDao.obtenerViajeporUsuario(usuarioSesion.getCodigoPucp());%>
 <%ArrayList<Viaje> listaDestino = viajesDao.listaViajesDestino(usuarioSesion.getCodigoPucp());%>
 <%ArrayList<Viaje> listaOrigen =viajesDao.listaViajesOrigen(usuarioSesion.getCodigoPucp());%>
-<%=listaViajes%>
 <%int costo_total=viajesDao.total(usuarioSesion.getCodigoPucp());%>
 
 
@@ -133,15 +132,11 @@
             <br>
             <br>
             <br>
-            <br>
-            <br>
+
 
 
             <div class="container" >
-                <h2 style="color:black"><center>  Lista de viajes </center>  </h2>
-                <br>
-                <br>
-                <br>
+
                 <div class="d-flex justify-content-start " >
                     <form>
                         <select class="form-control mx-4" style="width:250px;" name="origen"  required>
@@ -149,7 +144,6 @@
                             <%for (Viaje viaje : listaOrigen) {%>
                             <option value="<%=viaje.getCiudad_origen()%>"><%=viaje.getCiudad_origen()%></option>
                             <%}%>
-
                         </select>
                         <a type="submit" role="button" class="btn btn-outline-info mx-4"style="width: 80px;background-color:beige"; >origen</a>
                     </form>
@@ -184,7 +178,7 @@
                         <td style="color: black"><%=listaViajes1.getCosto_total()%></td>
 
                         <td> <a  type="submit" role="button" class="btn btn-outline-info" href="<%=request.getContextPath()%>/MenuServlet?a=Actualizar&idViaje=<%=listaViajes1.getId_viaje()%>&codigoPucp=<%=usuarioSesion.getCodigoPucp()%>">Editar</a></td>
-                        <td> <a  type="submit" role="button" class="btn btn-outline-warning" href="<%=request.getContextPath()%>/MenuServlet?a=Borrar&idViaje=<%=listaViajes1.getId_viaje()%>&codigoPucp=<%=usuarioSesion.getCodigoPucp()%>">Borrar</a></td>
+                        <td> <a  type="submit" role="button" class="btn btn-outline-warning" href="<%=request.getContextPath()%>/ConfirmarContrasena?a=continuar&idViaje=<%=listaViajes1.getId_viaje()%>">Borrar</a></td>
                     </tr>
                     <%}%>
                 </table>

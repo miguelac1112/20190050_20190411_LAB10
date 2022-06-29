@@ -13,7 +13,10 @@
             body{
                 background-image: url("Imagenes/fondo.jpg");
                 background-position: center ;
-
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-attachment: fixed;
+                font-family: Georgia;
             }
             .ventana{
                 background: #f1ebeb;

@@ -35,4 +35,28 @@ public class LoginDao extends DaoBase {
         }
         return usuario;
     }
+
+    public Usuario validarPass(String password, String codigoPucp){
+        Usuario usuario = null;
+
+        String sql = "select contrasena, codigoPucp from usuarios where codigoPucp=? and contrasena=sha2(?,256)";
+
+        try (Connection connection = this.getConnection();
+             PreparedStatement pstmt = connection.prepareStatement(sql);) {
+
+            pstmt.setString(1,codigoPucp);
+            pstmt.setString(2,password);
+            try(ResultSet rs = pstmt.executeQuery()){
+                if(rs.next()){
+                    usuario = new Usuario();
+                    usuario.setContrasenha(rs.getString(1));
+                    usuario.setCodigoPucp(rs.getString(2));
+                }
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return usuario;
+    }
 }

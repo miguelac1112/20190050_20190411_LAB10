@@ -35,7 +35,6 @@
     <body>
         <form class="ventana"  style="background-color: black"  method="POST" action="<%=request.getContextPath()%>/MenuServlet?a=crear_viaje" >
             <img class="mb-4 mt-4" src="Imagenes/logo.png" alt=" " width="230" height="150">
-            <p class="text-center" style="color: aliceblue; font-size: 25px" ><b>Añadir</b></p>
             <div class="col-sm-14 d-flex justify-content-around">
                 <div>
                     <div class="mb-3">
