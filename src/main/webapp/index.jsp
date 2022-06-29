@@ -10,6 +10,7 @@
 <%ArrayList<Viaje> listaDestino = viajesDao.listaViajesDestino(usuarioSesion.getCodigoPucp());%>
 <%ArrayList<Viaje> listaOrigen =viajesDao.listaViajesOrigen(usuarioSesion.getCodigoPucp());%>
 <%int costo_total=viajesDao.total(usuarioSesion.getCodigoPucp());%>
+<%viajesDao.anhadirGastos(usuarioSesion.getCodigoPucp(),costo_total);%>
 
 
 <!doctype html>
@@ -91,15 +92,15 @@
             valor=azul;
             status="Normal";
         }
-        if (costo_total>100 && costo_total<999){
+        if (costo_total>=100 && costo_total<1000){
             valor=plateado;
             status="Silver";
         }
-        if (costo_total>1000 && costo_total<9999){
+        if (costo_total>=1000 && costo_total<10000){
             valor=amarillo;
             status="Gold";
         }
-        if (costo_total>10000){
+        if (costo_total>=10000){
             valor=negro;
             status="Platinum";
         }%>

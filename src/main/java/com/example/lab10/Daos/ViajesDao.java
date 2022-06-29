@@ -367,4 +367,19 @@ public class ViajesDao extends DaoBase{
         return 0;
     }
 
+    public void anhadirGastos(String codigo_pucp, int Costo_total) {
+
+
+        String sql = "update usuarios set gastos=? where codigoPucp=?";
+
+        try (Connection connection = this.getConnection();
+             PreparedStatement pstmt = connection.prepareStatement(sql);) {
+            pstmt.setInt(1, Costo_total);
+            pstmt.setString(2, codigo_pucp);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 }
