@@ -36,16 +36,16 @@
                         <img class="mb-4 mt-4" src="Imagenes/logo.png" alt=" " width="230" height="150">
                         <p class="text-center" style="color: aliceblue; font-size: 25px" ><b>Edición</b></p>
 
-                        <div>
-                            <label for="ticket"></label>
+                        <div class="mb-3 mt-3 ms-4 me-4 d-flex flex-column">
+                            <label for="ticket" style="color: #f1ebeb; text-align: left;">Tickets</label>
                             <input class="form-control" value="<%=viaje.getCant_boletos()%>" type="number" min="1" max="15" step="1" name="ticket" id="ticket" required>
                             <input type="hidden" name="codigo_pucp" id="codigo_pucp" value="<%=viaje.getCodigo_comprador()%>" />
                             <input type="hidden" name="idviaje" id="idviaje" value="<%=viaje.getId_viaje()%>" />
                         </div>
 
 
-                        <div class="mb-3 mt-3 ms-4 me-4">
-                            <label for="origen"></label>
+                        <div class="mb-3 mt-3 ms-4 me-4 d-flex flex-column">
+                            <label for="origen" style="color: #f1ebeb; text-align: left;">Ciudad origen</label>
                             <select class="form-control" name="origen" id="origen" required>
                                 <option disabled>Seleccionar origen</option>
                                 <option>Lima</option>
@@ -53,7 +53,8 @@
                                 <option>Trujillo</option>
                             </select>
                         </div>
-                        <div class="mb-3 mt-3 ms-4 me-4">
+                        <div class="mb-3 mt-3 ms-4 me-4 d-flex flex-column">
+                            <label for="destino" style="color: #f1ebeb; text-align: left;">Ciudad destino</label>
                             <select class="form-control" name="destino" id="destino" required>
                                 <option disabled>Seleccionar destino</option>
                                 <%for(Viaje listaDestino: lista_destinos){%>
